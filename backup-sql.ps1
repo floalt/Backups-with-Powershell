@@ -1,13 +1,13 @@
 # Backup einer SQL-Datenbank
 # author flo.alt@fa-netz.de
-# ver 0.8
+# ver 0.81
 
 param(
 $sqlinstance = "<servername\sql-instance>",
 $dbname = "<name of the database>"
 )
 
-$dbpath = (Get-SqlDatabase -ServerInstance SERV-APP\SQLEXPRESSTIDE -Name TIDE).PrimaryFilePath
+$dbpath = (Get-SqlDatabase -ServerInstance $sqlinstance -Name $dbname).PrimaryFilePath
 $bakpath = $dbpath.replace("DATA","Backup")
 
 del $bakpath\$dbname-01.bak
