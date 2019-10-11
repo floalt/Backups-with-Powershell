@@ -1,6 +1,6 @@
 # Backup einer SQL-Datenbank
 # author flo.alt@fa-netz.de
-# ver 0.81
+# ver 0.82
 
 ### setup your parameters here:
 
