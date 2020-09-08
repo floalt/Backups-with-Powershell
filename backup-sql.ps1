@@ -1,18 +1,20 @@
 # Backup einer SQL-Datenbank
 # author flo.alt@fa-netz.de
-# ver 0.9
+# ver 0.91
 
 ### setup your parameters here:
 
 param(
 $sqlinstance = "MYSERVER\MSSQLSERVER>",
 $dbname = @(
-	"database_one"
+    "database_one"
     "database_two"
     "database_three"
 ))
 
 ### script start here
+
+$script:errorcount = 0
 
 # get the backup destination path
 
@@ -38,6 +40,14 @@ foreach ($db in $dbname) {
     else {
         echo "FAIL: $now - $db" >> "$bakpath\last-backup.log"
         echo "FAIL: $now - $db" >> "$bakpath\last-failure.log"
+        $script:errorcount++
         }
+}
 
+# check total errors:
+
+if ($script:errorcount -eq 0) {
+    $now = (Get-Date -Format dd.MM.yyy-HH:mm:ss)
+    echo "$now - Backup of all Databases successfully finished" > "$bakpath\last-succesful.log"
+    echo $dbname >> "$bakpath\last-succesful.log"
 }
