@@ -19,4 +19,5 @@ This script performs a FullBackup of the specified Microsoft SQL Databases.
  - `$sqlinstance`
  - `$dbname`
 
- Start the script with the cmd-file.
+ Start the script via Task Scheduler
+ 
