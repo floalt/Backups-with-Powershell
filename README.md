@@ -1,21 +1,21 @@
 # sql-backup
 Full SQL Database Dump
 
-This script makes a FullBackup of a specified Microsoft SQL Database.
+This script performs a FullBackup of the specified Microsoft SQL Databases.
 <br>
   - The last Backup (from yesterday) is renamed to <backupname>-01.bak. The yesterday's backup is therefore deleted.
   - Then the new backup is going to be done in the default SQL-Database Backup Path.
-  - If the Backup runs without an error: file `succesful.txt` is being created
-  - If the Backup fails: file `error.txt` is beeing created
+  - the Backup Log File: last-backup.log (is being overwritten every time)
+  - if a Backup fails: a line in last-failure.log ist added
  <br>
  You can integrate these two file in your monitoring software.
  <br>
- 
+
  ## Usage
- 
+
  Edit these parameters at the beginning of the script:
- 
+
  - `$sqlinstance`
  - `$dbname`
- 
+
  Start the script with the cmd-file.
