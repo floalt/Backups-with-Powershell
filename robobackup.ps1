@@ -1,9 +1,9 @@
 <#
-description:
-    Backup a whole folder via robocopy to a smb share
+    description:
+        Backup a whole folder via robocopy to a smb share
 
-author: flo.alt@fa-netz.de
-version: 0.1
+    author: flo.alt@fa-netz.de
+    version: 0.1
 
 #>
 

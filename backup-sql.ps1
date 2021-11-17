@@ -1,16 +1,20 @@
-# Backup einer SQL-Datenbank
-# author flo.alt@fa-netz.de
-# ver 0.91
+<#
+    description:
+        Make full backup of Microsoft SQL Server
 
-### setup your parameters here:
+    author: flo.alt@fa-netz.de
+    version: 0.91
+#>
 
-param(
-$sqlinstance = "MYSERVER\MSSQLSERVER>",
+
+$sqlinstance = "MYSERVER\MSSQLSERVER"
 $dbname = @(
     "database_one"
     "database_two"
     "database_three"
-))
+)
+
+
 
 ### script start here
 

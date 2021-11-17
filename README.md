@@ -1,6 +1,8 @@
 # sql-backup
 Full SQL Database Dump
 
+## Description
+
 This script performs a FullBackup of the specified Microsoft SQL Databases.
 <br>
   - The last Backup (from yesterday) is renamed to <backupname>-01.bak. The yesterday's backup is therefore deleted.
@@ -14,10 +16,27 @@ This script performs a FullBackup of the specified Microsoft SQL Databases.
 
  ## Usage
 
- Edit these parameters at the beginning of the script:
+ - Edit these parameters at the beginning of the script
+ - Start the script via Task Scheduler
+ 
+<br><br>
 
- - `$sqlinstance`
- - `$dbname`
+# robobackup
 
- Start the script via Task Scheduler
+## Description
+
+Backups (mirrors) a whole folder via robocopy to a smb share.
+<br>
+  - You define Source and Destination
+  - Destination can be local direcotry or UNC Path
+  - You can also map a smb share to a local drive
+  - you get logfiles an logfile retention
+ <br>
+ You can integrate that file(s) in your monitoring software.
+ <br>
+
+  ## Usage
+
+ - Edit these parameters at the beginning of the script
+ - Start the script via Task Scheduler
  
