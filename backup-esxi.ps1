@@ -53,7 +53,7 @@ $script:errorcount = 0
     # backup
         $yeah = "OK: Backup successfully done"
         $shit = "ERROR: Backup failed"
-    $backup_done = Get-VMHost | Get-VMHostFirmware -BackupConfiguration -DestinationPath $backup_path -ErrorVariable errchk; errorcheck
+    $backup_done = Get-VMHostFirmware -VMHost $ipadress -BackupConfiguration -DestinationPath $backup_path -ErrorVariable errchk; errorcheck
     
     # disconnect
     Disconnect-VIServer -Confirm:$False
