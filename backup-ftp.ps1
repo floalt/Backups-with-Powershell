@@ -13,10 +13,8 @@
 ## getting script name & path and reading variables from config file:
 
     $scriptpath = (Split-Path -parent $PSCommandPath)
-    #$scriptpath = "C:\scripts"
     $scriptsrc = "https://raw.githubusercontent.com/floalt/Backups-with-Powershell/master/backup-ftp.ps1"
     $scriptname = $MyInvocation.MyCommand.Name
-    #$scriptname = "backup-ftp.ps1"
     $scriptfullpath = $scriptpath + "\" + $scriptname
 
     . $scriptpath\backup-ftp.config.ps1
@@ -92,7 +90,7 @@ start-logfile
 
 # begin a new month
 
-    if ((Get-Date).day -eq 2) {
+    if ((Get-Date).day -eq 1) {
         if (Test-Path $local_mirror_l) {Remove-Item -Path $local_mirror_l -Recurse -Force}
         Rename-Item $local_mirror_t $local_mirror_l
         mkdir $local_mirror_t
