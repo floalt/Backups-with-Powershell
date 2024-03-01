@@ -12,11 +12,11 @@
 
 ## getting script name & path and reading variables from config file:
 
-    #$scriptpath = (Split-Path -parent $PSCommandPath)
-    $scriptpath = "C:\scripts"
-    $scriptsrc = "https://raw.githubusercontent.com/full/path/to/the/script.ps1"
-    #$scriptname = $MyInvocation.MyCommand.Name
-    $scriptname = "backup-ftp.ps1"
+    $scriptpath = (Split-Path -parent $PSCommandPath)
+    #$scriptpath = "C:\scripts"
+    $scriptsrc = "https://raw.githubusercontent.com/floalt/Backups-with-Powershell/master/backup-ftp.ps1"
+    $scriptname = $MyInvocation.MyCommand.Name
+    #$scriptname = "backup-ftp.ps1"
     $scriptfullpath = $scriptpath + "\" + $scriptname
 
     . $scriptpath\backup-ftp.config.ps1
