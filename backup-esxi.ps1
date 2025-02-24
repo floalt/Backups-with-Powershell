@@ -1,4 +1,4 @@
-﻿<#
+<#
 description:
 
     Backup ESXi Host configuration
@@ -11,16 +11,16 @@ description:
 #### set the config ####
 
 # ESXi Host config 
-    $ipadress = ""
+    $ipadress = "192.168.104.211"
     $esxiuser = "vmadmin"
-    $esxipass = ""
+    $esxipass = "VTL7Zj5aKzoyQJsC56"
     $backup_path = "c:\esxibackup"
 
 # Nextcloud Upload
     
-    $sharetoken = ""
-    $NextcloudUrl = "https://cloud.fa-netz.de"
-
+    $NextcloudUrl = "https://cloud.fa-netz.de/remote.php/dav/files/uploader/Shared-to-me/ESXi-Host"
+    $Username = "uploader"
+    $Password = "thisisverysecret"
 
 #### functions ####
 
@@ -75,11 +75,11 @@ $script:errorcount = 0
 
     # preparing
     $Item = Get-Item $backup_path\$new_backup
+    $Creds = ConvertTo-SecureString "$Username`:$Password" -AsPlainText -Force
     $Headers = @{
-        "Authorization"=$("Basic $([System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($("$($sharetoken):"))))");
-        "X-Requested-With"="XMLHttpRequest";
+        Authorization = "Basic " + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("$Username`:$Password"))
     }
-    $webdav = "$($NextcloudUrl)/public.php/webdav/$($Item.Name)"
+    $webdav = "$($NextcloudUrl)/$($Item.Name)"
     
     #upload
         $yeah = "OK: Upload to Nextcloud"
