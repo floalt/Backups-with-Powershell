@@ -4,7 +4,7 @@
 
     author: flo.alt@fa-netz.de
     https://github.com/floalt/Software-Deployment/tree/main/update-anything
-    version: 0.61
+    version: 0.62
 
 #>
 
@@ -114,6 +114,9 @@ start-logfile
     }
 
     $session = New-Object WinSCP.Session
+
+    $WinSCPModulePath = Get-Module -Name WinSCP -ListAvailable | Select-Object -First 1 -ExpandProperty ModuleBase
+    $session.ExecutablePath = "$WinSCPModulePath\bin\WinSCP.exe"
 
 try {
     # connect to FTP server
